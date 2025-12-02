@@ -1,4 +1,4 @@
-# DeathBox
+# DeathBox: A Simple Afterlife Archive
 ## A simple browser-based application to help you create a single, comprehensive document that holds all the key information people may need when you die.
 
 ### Too often, the people you leave behind are left guessing. They may not know how to access your devices, manage your online activities or finances, or even who your closest friends were and which people, places and things mattered most to you.
