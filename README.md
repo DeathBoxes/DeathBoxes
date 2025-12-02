@@ -70,7 +70,7 @@ I've run a basic security audit of DeathBoxes using ChatGPT. The results are uns
 
 For full transparency, you are more than welcome to download the source code of this page via the option below the form. Downloading the source code will also allow you to run the application on your local computer or server (ideally using SSL/TLS).
 
-All that said, I take absolutely no responsibility for the information you enter here, its validity, or any consequences resulting from its misuse, mishandling or unauthorised access. What you do with the contents of your DeathBox is wholly down to you. You have been warned.
+## All that said, I take absolutely no responsibility for the information you enter here, its validity, or any consequences resulting from its misuse, mishandling or unauthorised access. What you do with the contents of your DeathBox is wholly down to you. You have been warned.
 
 ### Q: I've lost the passphrase for an encrypted DeathBox. What can I do?
 
