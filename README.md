@@ -32,7 +32,7 @@ Once you've completed the form, entered a passphrase and downloaded your encrypt
 
 For your DeathBox to be accessible after you're gone, you'll also need to give your passphrase to at least one other person who has the means to visit this webpage (or a local copy of it) and upload the encrypted file. An encrypted DeathBox file or PDF without a passphrase is pretty much useless.
 
-Basically, your DeathBox is only as strong as the passphrase you use to encrypt it, the confidence you have in those you entrust it to, and the integrity of the device you store it on.
+**Basically, your DeathBox is only as strong as the passphrase you use to encrypt it, the confidence you have in those you entrust it to, and the integrity of the device you store it on.**
 
 **No Spying Shenanigans**
 
