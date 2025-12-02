@@ -33,7 +33,8 @@ Once you've completed the form, entered a passphrase and downloaded your encrypt
 For your DeathBox to be accessible after you're gone, you'll also need to give your passphrase to at least one other person who has the means to visit this webpage (or a local copy of it) and upload the encrypted file. An encrypted DeathBox file or PDF without a passphrase is pretty much useless.
 
 Basically, your DeathBox is only as strong as the passphrase you use to encrypt it, the confidence you have in those you entrust it to, and the integrity of the device you store it on.
-No Spying Shenanigans
+
+**No Spying Shenanigans**
 
 I appreciate the highly sensitive nature of the information you provide, and as such, all processing is undertaken within your browser. No third-party cookies are used and absolutely no data whatsoever is stored or transmitted beyond your computer and this page (this page does not use cookies either).
 
@@ -41,7 +42,7 @@ There is no tracking, no back-end database, no server-side processing and no sur
 
 **No Man-in-the-Middle Monkey-Business**
 
-Building your DeathBox is a wholly client-side process, that's to say it happens on your computer. Once your browser has finished loading this page – which includes the HTML, five JavaScript files, a stylesheet, a couple of fonts and favicons (the small icon on the browser's tab) and the logo image (for a total of 12 items, or 13 if the logo is cached) – there are no more HTTP requests. Zero.
+Building your DeathBox is a wholly client-side process, that's to say it happens on your computer. Once your browser has finished loading the application – which includes the HTML, five JavaScript files, a stylesheet, a couple of fonts and favicons (the small icon on the browser's tab) and the logo image (for a total of 12 items, or 13 if the logo is cached) – there are no more HTTP requests. Zero.
 
 The HTML form itself has no action defined, so it literally doesn't submit anything at all (including uploads). The application takes your form responses, compiles and encrypts them into a file, then prompts you to download it. The browser's memory is then cleared and the form is reset.
 
@@ -87,7 +88,7 @@ Me, Russell McVeigh. I'm an editor, developer and musician. And I'm 100% human a
 
 Yes, creating your own DeathBox on deathboxes.co.uk is absolutely free. You're also welcome to download the source code and use it offline. However, it is copyrighted, so I'd really appreciate it if you didn't clone it, sell it or claim it as your own.
 
-If you've found the application useful and are in a particularly generous mood, feel free to drop me a PayPal donation.
+If you've found the application useful and are in a particularly generous mood, [feel free to drop me a PayPal donation](https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=tech@netstepper.com&tax=0&item_name=DeathBox%20Donation&currency_code=GBP).
 
 **No Advertising Antics**
 
