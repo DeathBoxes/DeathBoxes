@@ -1,0 +1,732 @@
+/**
+* DeathBox: A Simple Afterlife Archive
+ * 
+ * @file style.js
+ * @version 1.73
+ * @author Russell McVeigh (hello@deathboxes.co.uk)
+ * @date 24th November 2025
+ * @description DeathBoxes is an online application to help you create a single, comprehensive document that holds all the key information people may need when you die.
+ *
+ */
+
+/* Caprasimo */
+@font-face {
+  font-family: 'Caprasimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('./fonts/caprasimo.woff2') format('woff2');
+}
+
+/* Quicksand */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300 700; /* Supports all weights from 300 to 700 */
+  font-display: block;
+  src: url('./fonts/quicksand.woff2') format('woff2');
+}
+
+html {
+	height:100%;
+	background-color:#6592b0;
+	/* Sky to Mustard Linear */
+	background: linear-gradient(to bottom,  #9AcBe8 0%,#d6f9ff 50%,#FFCC00 100%);
+	/* Sky to Dirt Linear */
+	background: linear-gradient(to bottom,  #9acbe8 0%,#d6f9ff 23%,#726011 61%,#161200 85%);
+	/* Blue Shade Radial */
+	background: radial-gradient(ellipse at center,  #d6f9ff 0%,#447499 100%);
+	background-attachment:fixed;
+}
+body {
+	font-size:20px;
+	line-height:2em;
+	font-family: Quicksand, Arial, sans-serif;
+	margin:0px;
+	color:#222;
+	text-align:center;
+}
+
+:root {
+  accent-color:#28A700;
+}
+
+a {
+	color:#005ea1;	
+}
+
+a:hover {
+	color:#e90f9b;	
+}
+
+.notice a, .faq a {
+	color:#000;
+	font-weight:bold;
+}
+
+.notice a:hover, .faq a:hover {
+	color:#005ea1;
+}
+
+h2 {
+	font-size:1.8em;
+}
+h3 {
+	font-size:1.5em;
+}
+h4 {
+	font-size:1.2em;
+}
+.deathbox-jumbotron {
+	width:100%;		
+	padding:0px;
+	margin:0px;
+	margin-bottom:0px;
+	height:100vh;
+	background-color:#000000;
+	text-align:center;
+}
+
+/* Make the whole jumbotron fixed (including title) - enabled by JS variable 'useFixedJumbotron' */
+.jumbotron-fixed {
+	position:fixed;
+	z-index:1;
+}
+
+/* Use a background image for the logo instead */
+.jumbotron-bg-logo {
+	background-color:#000000;
+	background-image:url(deathbox-logo.jpg);
+	background-attachment:fixed;
+	background-repeat:no-repeat;
+	background-position:center 192px;
+	background-size:628px;
+}
+
+h1 {
+	font-family:Caprasimo, Arial;
+	padding: 80px 5px 0px 5px;
+	margin:0px;
+	text-align:center;
+	color: #FFF;
+	font-weight:400;
+	font-size:2.6em;
+	line-height:1em;
+}
+
+#deathbox-logo {
+	margin-top:60px;
+	margin-bottom:40px;
+	width:628px;
+	max-width:80%;
+	/* Keep logo fixed and centered */
+	position:fixed;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%);
+	color:#666666;
+	display:none;
+}
+
+
+#deathbox-logo-ns {
+	margin-top:60px;
+	margin-bottom:40px;
+	width:628px;
+	max-width:80%;
+	/* Keep logo centered */
+	position:absolute;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%);
+	color:#666666;
+}
+
+.deathbox-logo-scrolled {
+	position:inherit!important;
+	transform:none!important;
+}
+
+.deathbox-main {
+	padding:2rem;
+	z-index:600;
+	/* These are required to keep the logo fixed */
+	position:relative;
+	background: radial-gradient(ellipse at center,  #d6f9ff 0%,#447499 100%);
+	background-attachment:fixed;
+}
+
+/* Alternative method to use with sticky jumbotron - enabled by JS variable 'useFixedJumbotron */
+.deathbox-main-jumbotron-fixed {
+	top:100vh;
+}
+
+#dynamicForm {
+	max-width:750px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#pdfRender {
+	width:600px;
+	text-align:left;
+}
+
+p {
+	line-height:1.4em;
+}
+
+p.explainer {
+	font-size:1.3em;
+	line-height:1.65em!important;
+}
+
+.noscript {
+	display:block;
+	width:100%;
+	xborder:2px solid #CC0000;
+	color:#FFF;
+	background-color:#c40a91;
+	font-weight:bold;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+#expandCollapseAll { margin-bottom:1rem; display:inline-block; cursor:pointer; background:#0078d7;color:#fff;border:none;border-radius:6px; transition:0.2s; }
+#expandCollapseAll:hover {background-color:#005ea1;}
+
+.section {
+	background:#fff;
+	border-radius:12px;
+	padding:1rem 1.5rem;
+	margin:1rem auto;
+	max-width:700px;
+	box-shadow:0 2px 4px rgba(0,0,0,0.2);
+	text-align:left;
+	transition:0.2s;
+}
+
+.section:hover {
+	box-shadow:0 4px 8px rgba(0,0,0,0.4);
+}
+.section-description {
+	font-weight:normal;
+	line-height:1.4em;
+	font-size:1em;
+	color:#555555;
+}
+.subsection {
+	font-size:1.2em;
+	line-height:1.2em;
+	font-weight:bold;
+	color:/* blue #005ea1*/ #005ea1;
+	margin-top:1.5rem;
+	margin-bottom:1.5rem;
+}
+.section-header {
+	font-size:1.4em;
+	cursor:pointer;
+	font-weight:bold;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	margin-top: -20px;
+	padding-top: 18px;
+	margin-bottom: -20px;
+	padding-bottom: 18px;
+	transition:0.2s;
+}
+
+.subsection-description {
+	font-weight:normal;
+	line-height:1.2em;
+	font-size:0.9em;
+	color:#555555;
+	margin-top:-20px;
+	margin-bottom:30px;
+}
+
+.section-header:hover {
+	color:#e90f9b;/* pink: #e90f9b*/
+}
+
+.field-description {
+	font-weight:normal;	
+	line-height:1.2em;
+	font-size:0.8em;
+	color:#555555;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.section-content {
+	margin-top:1rem;
+}
+.field {
+	margin-top:0.5rem;
+}
+.field label {
+	display:flex;
+	flex-direction:column;
+	line-height:1.4em;
+	margin-bottom:1.25rem;
+	font-weight:bold;
+}
+input, textarea {
+	font-family:Arial;
+	width:100%;
+	max-width:100%;
+	margin-top:0.3rem;
+	padding:0.4rem;
+	border-radius:6px;
+	font-size:1.2rem;
+	border:1px solid #ccc;
+	box-sizing:border-box;
+}
+
+button {
+	font-family:Quicksand, Arial;
+	width:auto;
+	padding:1rem 1.5rem;
+	cursor:pointer;
+	border-radius:6px;
+	font-size:1.4rem;
+	font-weight:bold;
+	border:none;
+	transition:0.2s;
+}
+textarea {
+	min-height:105px;
+	field-sizing: content;
+	resize:vertical;
+}
+
+.repeatable-btn { background:#28a745; color:#fff; border:none; cursor:pointer; border-radius:6px; }
+.repeatable-btn:hover { background:#1e7e34; }
+.remove-btn{
+	float:right;
+	background:#dc3545;
+	color:#fff;
+	border:none;
+	cursor:pointer;
+}
+.remove-btn:hover {background:#CC0000;}
+#saveBtn, #generateBtn { margin-top:1rem; background:#0078d7; color:#fff; border:none; cursor:pointer; border-radius:6px; }
+#saveBtn:hover, #generateBtn:hover { background:#005ea1; }
+
+#encryptOption, #onlyCompleteOption {
+	margin-top:1rem;
+}
+
+#decryptBtn, #decryptBtnProgress { margin-top:1rem; background:#0078d7; color:#fff; border:none; cursor:pointer; border-radius:6px; }
+#decryptBtn:hover, #decryptBtnProgress:hover { background:#005ea1; }
+#status, #statusSave, #statusDecrypt, #statusDecryptProgress, #statusSaveSource { margin-top:1rem; margin-bottom:0; font-weight:bold; }
+
+input[type=checkbox]{
+	xwidth:auto!important;
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+  vertical-align:middle;
+  position: relative;
+  bottom: 8px;
+}
+
+.cb-section {
+	float:left;
+	margin-top:11px;
+	margin-left:-8px;
+	margin-right:12px;
+}
+
+.action-panel {
+	line-height:20px;
+	max-width:690px;
+	margin:2rem auto;
+	padding:30px;
+	border-radius:10px;
+	background-color:#FFFFFF;
+	box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.action-panel p {
+	text-align:left;
+}
+
+.action-panel h3, .action-panel h4 {
+	text-align:left;
+}
+
+.action-panel label {
+	display:flex;
+	flex-direction:column;
+	margin-bottom:1rem;
+	font-weight:bold;
+	text-align:left;
+}
+
+.action-panel label.checkbox {
+	font-weight:bold;
+	text-align:center;
+	display:block;
+}
+
+.notice { max-width:740px; margin-left:auto; margin-right:auto; text-align:left;}
+.success { color: green; margin-top: 1rem; }
+.error {
+	color: #CC0000;
+	margin-top: 1rem;
+}
+.repeatable-instance {
+	margin-top:0.5rem;
+}
+.blue {
+	color:#005ea1 /*previous: #0078d7*/;
+}
+.red {
+	color:#CC0000;	
+}
+.pink {
+	color:#e90f9b;/* pink: #e90f9b*/
+}
+.warning {
+	color:#CC0000;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+footer {
+	color:#333333;
+	font-size:0.85em;
+}
+footer a {
+	color:#333333;
+}
+footer a:hover {
+	color:#000000;
+}
+.progress {
+	width:100%;
+	height:4px;
+	position:fixed;
+	top:0px;
+	left:0px;
+	z-index:1000;
+}
+
+/* Single - green */
+.progress-bar {
+	width:auto;
+	height:inherit;
+	float:left;
+	background-color:#00CC00;
+	background: linear-gradient(to bottom,  #60c438 0%,#9aef4f 50%,#60c438 100%);
+	transition:1s;
+}
+
+/* Fields - Grey or Blue Gradient */
+.progress-bar-fields {
+	width:auto;
+	height:inherit;
+	float:left;
+	background-color:#CCCCCC;
+	/* Grey */
+	xbackground: linear-gradient(to bottom,  #cccccc 0%,#eaeaea 50%,#cccccc 100%);
+	/* Blue */
+	background: linear-gradient(to bottom,  #207cca 0%,#5bb3ea 50%,#207cca 100%);
+	transition:1s;
+	position:absolute;
+	z-index:20;
+}
+
+/* Sections - Amber */
+.progress-bar-sections {
+	width:auto;
+	height:inherit;
+	float:left;
+	background-color:#F7A547;
+	background: linear-gradient(to bottom,  #f7a547 0%,#ffcc00 50%,#f7a547 100%);
+	transition:1s;
+	position:absolute;
+	z-index:10;
+}
+
+/* Marked - Green */
+.progress-bar-marked {
+	width:auto;
+	height:inherit;
+	float:left;
+	background-color:#00CC00;
+	background: linear-gradient(to bottom,  #60c438 0%,#9aef4f 50%,#60c438 100%);
+	transition:1s;
+	position:absolute;
+	z-index:15;
+}
+
+/* Progress meter in 'Save Progress' panel */
+.progress-panel {
+	width:100%;
+	height:20px;
+	/* Plain grey */
+	xbackground-color:#CCCCCC;
+	/* Mid grey gradient */
+	xbackground: linear-gradient(to bottom,  rgb(102,102,102) 0%,rgb(193,193,193) 50%,rgb(102,102,102) 100%);
+	/* Dark grey gradient*/
+	xbackground: linear-gradient(to bottom,  rgb(68,68,68) 0%,rgb(102,102,102) 50%,rgb(68,68,68) 100%);
+	/* Glass gradient*/
+	xbackground: linear-gradient(to bottom,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%);
+	/* Light grey gradient */
+	background: linear-gradient(to bottom,  rgb(209,209,209) 0%,rgb(255,255,255) 50%,rgb(209,209,209) 100%);
+
+	border:1px solid #666666;
+	border-radius:15px;
+	overflow:hidden;
+	position: relative;
+}
+
+.progress-legend-wrapper {
+	font-size:0.8em;
+	margin-top:20px;
+}
+
+.progress-legend {
+	width:22px;
+	height:22px;
+	display:inline-table;
+	vertical-align:middle;
+	border:1px solid #666666;
+	border-radius: 50%;
+}
+
+.legend-text {
+	display:inline;
+}
+
+.progress-legend-marked {
+	background-color:#00CC00;
+	background: linear-gradient(to bottom,  #60c438 0%,#9aef4f 50%,#60c438 100%);
+}
+
+.progress-legend-sections {
+	background-color:#F7A547;
+	background: linear-gradient(to bottom,  #f7a547 0%,#ffcc00 50%,#f7a547 100%);
+}
+
+.progress-legend-fields {
+	background-color:#0066FF;
+	background: linear-gradient(to bottom,  #207cca 0%,#5bb3ea 50%,#207cca 100%);
+}
+
+.progress-legend-empty {
+	background-color:#666666;
+	background: linear-gradient(to bottom,  rgb(68,68,68) 0%,rgb(102,102,102) 50%,rgb(68,68,68) 100%);
+}
+
+.progress-legend-empty-wrapper {
+	display:none;
+}
+
+/* Used to denote 'amber' state progress in sections that haven't been marked as complete */
+.amber {
+	background-color:#F7A547;
+	background: linear-gradient(to bottom,  #f7a547 0%,#ffcc00 50%,#f7a547 100%);
+}
+/* Text percentages (just bold) */
+.percent-complete, .percent-complete-marked, .percent-complete-sections, .percent-empty {
+	font-weight: bold;
+}
+
+.description {
+	font-weight:normal;
+	color:#666666;
+	word-wrap:break-word;
+}
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: #e90f9b;
+}
+::selection {
+  color: white;
+  background: #e90f9b;
+}
+
+.faq {
+	padding-left:30px;
+	padding-right:30px;
+}
+.toc {
+	list-style:none;
+	padding-left: 0px;
+}
+.toc li {
+	list-style-type:none;
+}
+
+.comment {
+	font-size:0.9em;
+}
+
+/* Broad mobile media */
+@media (max-width: 428px) { 
+
+	input[type="checkbox"] {
+	  width: 24px;
+	  height: 24px;
+	  vertical-align:middle;
+	  position: relative;
+	  bottom: 8px;
+	}
+		
+	button {
+	  font-family: Quicksand, Arial;
+	  width: auto;
+	  padding: 0.5rem 0.5rem;
+	  cursor: pointer;
+	  border-radius: 6px;
+	  font-size: 1rem;
+	  line-height:1em;
+	  font-weight: bold;
+	  border: medium;
+	  transition: 0.2s;
+	  max-width:49%;
+	  word-wrap:break-word;
+	}
+	
+	.action-panel h3, .action-panel h4 {
+		line-height:1em;
+	}
+	
+	.action-panel button {
+		font-size: 1.4rem;
+		max-width:inherit;
+	}
+	
+	.progress-legend-wrapper {
+		text-align: left;
+		margin-top:0px;
+	}
+	
+	.progress-legend {
+		position:relative;
+		display:block;
+		top:20px;
+	}
+	
+	.legend-text {
+		margin-left:30px;
+	}
+	
+	.remove-btn{
+		margin-top:6px;
+	}
+	h1 {
+		margin-top:0px;
+		padding-top:20px;
+		padding-bottom:0px;
+		margin-bottom:0px;
+		font-size:1.6em;
+	}
+	#deathbox-logo {
+		xmargin-top:0px;
+		xmargin-bottom:0px;
+		position:absolute!important;
+		left: 50%!important;
+		top: 50%!important;
+		transform: translate(-50%,-50%)!important;
+	}
+	.deathbox-jumbotron {
+		background-position:center 300px;
+		background-size:400px;
+	}
+	.deathbox-main {
+		xmargin:0px!important;
+		padding:20px;
+	}
+	.section {
+		margin-left:0px!important;
+		margin-right:0px!important;
+	}
+	.section-header {
+		font-size:1.2em;
+		line-height:1.2em;
+	}
+	.action-panel h2 {
+		line-height:1.2em;
+		font-size:1.4em;
+	}
+	.faq {
+		margin:20px;
+		padding-left:0px;
+		padding-right:0px;
+	}
+	footer {
+		line-height:1em;
+	}
+	.toc li {
+		line-height:1.6em;
+		margin-bottom:20px;
+	}
+	.toc li a {
+		text-decoration:none;
+		border-bottom: 1px solid #000;
+		padding-bottom:3px;
+	}
+	.comment {
+		line-height:1em;
+	}
+
+}
+
+.file-list {
+	font-family:"Courier New", Courier, monospace;
+	line-height:1em;
+	text-align:left;
+	padding-left:20px;
+} 
+
+.file-list li {
+	list-style-type:disc;
+	padding-left:0px;
+}
+
+.file-list li ul {
+	padding-left:20px;
+}
+
+.file-comment {
+	font-size:0.8em;
+	color:#006600;
+}
+
+.file-error {
+	color:#CC0000;
+	font-weight:bold;
+}
+
+.sections-empty, .sections-incomplete {
+	font-size:0.8em;
+	display:none;
+}
+
+.empty-count, .incomplete-count {
+	width:25px;
+	height:25px;
+	padding:4px 6px 4px 6px;
+	border:5px solid #CCC;
+	background-color:#FFFFFF;
+	color:#e90f9b;
+	border-radius:50%;
+	font-weight:700;
+	display:inline-block;
+	text-align:center;
+	line-height:normal;
+}
+
+.tip {
+	text-align:left;
+	border:1px solid #DDD;
+	padding:15px;
+	line-height:1.3em;
+	border-radius:10px;
+	background-color:#e3f7ff;
+}

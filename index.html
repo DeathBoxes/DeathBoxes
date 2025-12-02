@@ -1,0 +1,437 @@
+<!--
+DeathBox: A Simple Afterlife Archive
+File: index.html
+Author: Russell McVeigh (hello@deathboxes.co.uk)
+Description: DeathBoxes is an online application to help you create a single, comprehensive document that holds all the key information people may need when you die.
+Last updated: 30th November 2025
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Create a single, comprehensive document that holds all the key information people may need when you die. Free and secure.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Referrer-Policy" content="no-referrer, strict-origin-when-cross-origin" />
+<title>DeathBox - A Simple Afterlife Archive</title>
+
+<link rel="stylesheet" href="style.css" />
+
+<!-- Include jsPDF -->
+<script src="jspdf.umd.min.js"></script>
+
+<!-- Include jQuery -->
+<script src="jquery.min.js"></script>
+
+<!-- Include jQueryUI -->
+<script src="jquery-ui.min.js"></script>
+<!-- Include Touch-Punch for touchscreen compatibility -->
+<script src="jquery.ui.touch-punch.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+
+<body>
+<div class="progress"><div class="progress-bar-fields"></div><div class="progress-bar-sections"></div><div class="progress-bar-marked"></div></div>
+
+<div id="noscript" class="noscript">
+	<p>This website does not work without JavaScript. Please enable and refresh the page before continuing.</p>
+</div>
+
+<div class="deathbox-jumbotron">
+
+<h1>DeathBox: A Simple Afterlife Archive</h1>
+
+<img id="deathbox-logo" width="500" alt="A cardboard box emitting neon pink and blue light, smoke and bubbles with a skull motif on one side" src="deathbox-logo.jpg">
+
+<div id="noscript-logo"><img id="deathbox-logo-ns" width="500" alt="A cardboard box emitting neon pink and blue light, smoke and bubbles with a skull motif on one side" src="deathbox-logo.jpg"></div>
+
+</div>
+
+<div class="deathbox-main">
+
+<div class="notice">
+	<h2>This website can help you create a single, comprehensive document that holds all the key information people may need when you die.</h2>
+</div>
+
+<div class="notice">
+	<p class="explainer">Too often, the people you leave behind are left guessing. They may not know how to access your devices, manage your online activities or finances, or even who your closest friends were and which people, places and things mattered most to you.</p>
+	
+	<p class="explainer">They might also be unsure of your medical history, where your passport is, or who's going to take care of your dependants, pets, home, car and garden when you're not around. Your DeathBox is also a great place to list your favourite books, films, music, colours and foods, and to leave instructions for how you’d like your funeral or burial to be arranged.</p>
+	
+	<p class="explainer">The more information you provide, the easier it will be for your nearest and dearest to manage your affairs and understand who you were.</p>
+	
+	<p class="explainer">Your death should also be a celebration of your life, and aside from the practical stuff, the things you place into your DeathBox should reflect that.</p>
+	
+</div>
+
+<div class="notice">
+
+	<h3>Put the kettle on. Gather your thoughts.</h3>
+
+	<p>Heads up! This form could take a <em>very</em> long time to complete. We strongly recommend preparing all the information you need before entering it here.</p>
+	
+	<p>The only required fields are your name and the details of the person you appoint to open your DeathBox. Just complete the sections that are relevant or comfortable for you.</p>
+	
+	<p>For convenience, you can save your progress to an encrypted file and then resume at a later date by using the options below the main form.</p>
+	<p><strong>You will lose all information if you refresh or reload the page without saving your progress.</strong></p>
+	
+	<h3>Need to open somebody's DeathBox?</h3>
+	
+	<p>If somebody has entrusted with their DeathBox and they've recently passed away, <a href="#open">you can decrypt it below</a>. You'll need both the encrypted file and the passphrase to unlock it.</p>
+	
+	<p>For more information about DeathBoxes, especially regarding security concerns, please read the <a href="#faq">FAQ</a>.</p>
+
+</div>
+
+<a name="form"></a>
+<br>
+
+<button id="expandCollapseAll">Expand All Sections</button>
+<br>
+<div class="comment">Tip: You can drag and drop sections to reorder them</div>
+
+<form id="dynamicForm" autocomplete="off"><strong class="red">Please enable JavaScript!</strong></form>
+
+<a name="save"></a>
+<div class="action-panel">
+  <h2>Save Progress</h2>
+  
+   <p>This section shows your progress and allows you to save your DeathBox to an encrypted file. You will need to come up with a secure and memorable passphrase to protect your file.</p>
+   
+   <div class="tip">&#128161; You can select the file at a later date and continue from where you left off using the 'Load Progress' option below. You <strong>must re-enter exactly the same passphrase to decrypt it</strong>.</div>
+   
+   <br>
+   
+   <div class="progress-panel"><div class="progress-bar-fields"></div><div class="progress-bar-sections"></div><div class="progress-bar-marked"></div></div>
+  
+  	<div class="progress-legend-wrapper">
+	<div class="progress-legend progress-legend-marked"></div> <div class="legend-text">Marked Complete (<span class="percent-complete-marked"></span>)</div>
+	<div class="progress-legend progress-legend-sections"></div> <div class="legend-text">Sections (<span class="percent-complete-sections"></span>)</div>
+	<div class="progress-legend progress-legend-fields"></div> <div class="legend-text">Fields (<span class="percent-complete"></span>)</div>
+	<div class="progress-legend-empty-wrapper"><div class="progress-legend progress-legend-empty"></div> <div class="legend-text">Empty (<span class="percent-empty"></span>)</div></div>
+	</div>
+
+  <p><strong><span class="incomplete-count"></span> <span class="incomplete-text"></span> <small>(<a href="#" class="toggle-incomplete">show/hide</a>)</small></strong></p>
+  <p class="sections-incomplete"></p>
+  
+  <p><strong><span class="empty-count"></span> <span class="empty-text"></span> <small>(<a href="#" class="toggle-empty">show/hide</a>)</small></strong></p>
+  <p class="sections-empty"></p>
+  
+  <p><strong>This action will not modify or reset the main form above.</strong></p>
+  
+  <button id="saveBtn" type="button">Save Progress (always encrypted)</button><br><br>
+  <small><a id="exportBtn" href="#">Export JSON</a></small>
+  <p id="statusSave"></p>
+</div>
+
+<a name="resume"></a>
+<div class="action-panel">
+  <h2>Load Progress</h2>
+  <p>This option allows you to select an encrypted file and resume a session. The form will be populated with its contents so you can continue from where you left off.</p>
+  
+  <div class="tip">&#128161; <strong>You'll need to know the passphrase to use this option.</strong> If you've misplaced or forgotten it, the progress file cannot be unlocked. This is an intentional security feature.</div>
+  
+  <p><strong>This action will <span class="red">REPLACE ALL FIELDS</span> in the main form above!</strong></p>
+  <br>
+  <label>Choose Progress File:
+  <input type="file" id="fileInputProgress" accept=".enc" required>
+  </label>
+  <label>Passphrase:
+  <input type="password" id="passphraseProgress" placeholder="Enter passphrase" autocomplete="off" required>
+  </label>
+  
+  <button id="decryptBtnProgress">Load Progress</button>
+  <p id="statusDecryptProgress"></p>
+</div>
+
+<a name="download"></a>
+<div class="action-panel">
+  <h2>Download a DeathBox</h2>
+  <p>This option is generally used when you've finished providing all of your information.</p>
+  
+  <p><strong>For legal validity of 'Last Will and Testament':</strong> Download an unencrypted version, print the PDF, and sign with two witnesses. Store it in a safe place (e.g. bank, safe or strongbox).</p>
+  
+  <p><strong>For secure sharing:</strong> Send the encrypted file and passphrase to your trusted person, or tell them how to find and open it. You might want to do this immediately – we never know what's around the corner and you need to ensure it can be accessed if something unexpected happens to you.</p>
+  
+  <p><strong>Important:</strong> If you choose to encrypt your file, you'll need to provide a secure, memorable passphrase to protect it.</p>
+  
+  <div class="tip">&#128161; Before being able to view an encrypted DeathBox, the person you have entrusted to open it upon your death <strong>must decrypt it by entering exactly the same passphrase</strong> in the section below.</div>
+  
+  <p class="red"><strong>An encrypted DeathBox without a passphrase is useless.</strong></p>
+
+  <p><strong>This action will <span class="red">RESET ALL FIELDS</span> in the main form above!</strong></p>
+  
+  <br>
+  
+  <label class="checkbox"><input type="checkbox" id="encryptOption" checked> 
+  Encrypt before download</label>
+  
+  <label class="checkbox"><input type="checkbox" id="onlyCompleteOption"> 
+  Only include sections marked as complete</label>
+  
+  <button id="generateBtn" type="button">Download DeathBox</button>
+  <p id="status"></p>
+</div>
+
+<a name="open"></a>
+<div class="action-panel">
+  <h2>Open a DeathBox</h2>
+  <p>If you have been entrusted with somebody's encrypted DeathBox and that person has now died, this section will allow you to decrypt it and save it as a PDF file.</p>
+  
+  <div class="tip">&#128161; <strong>You'll need to know the passphrase to use this section.</strong> If one wasn't provided or you've misplaced it, the Deathbox cannot be unlocked — this is an intentional security feature and cannot be bypassed.</div>
+  
+  <p><strong>This action will not modify or reset the main form above.</strong></p>
+  <br>
+  
+  <label>Choose DeathBox File:
+  <input type="file" id="fileInput" accept=".enc" required>
+  </label>
+  <label>Passphrase:
+  <input type="password" id="passphrase" placeholder="Enter passphrase" autocomplete="off" required>
+  </label>
+  
+  <button id="decryptBtn">Decrypt and Download PDF</button>
+  <p id="statusDecrypt"></p>
+</div>
+
+<a name="source"></a>
+<div class="action-panel">
+  <h2>Save Source Files</h2>
+  <p>Downloading a copy of the DeathBox source code will allow you to not only perform offline processing (including encryption/decryption), but also to validate the source code for added reassurance.</p>
+  
+  <p>You will need to download a number of files, including JavaScript, stylesheets, fonts and images, for the application to operate and render correctly on your local server.</p>
+  
+   <h3>Browser Security</h3>
+   
+  <p>If your local environment does not operate under a SSL/TLS certificate, you may experience cross-browser security warnings. This is unavoidable due to modern browser security requirements. Your browser may also block the fonts loading, but this shouldn't affect the app's functionality.</p>
+  
+  <h3>Download the Files</h3>
+  <p>Download a zip file containing all of the necessary files/folders using the link below  (right click and choose 'Save Link As...' to download).</p>
+  <p><a href="https://www.deathboxes.co.uk/deathboxes-local.zip" target="_blank">deathboxes-local.zip</a></p>
+  
+  <h3>Set it Up</h3>
+  
+  <p><strong>Step 1:</strong> Download the above zip file and extract it to your local device. After completion, you should have a file/folder system similar to the one shown below.</p>
+  
+  <p><strong>Step2:</strong> Open the index.html page in your browser to run the application.</p>
+  
+  <h3>File List</h3>
+  
+  <p>Here's the file and folder structure:</p>
+  
+  <ul class="file-list">
+    <li>
+      <strong>/deathboxes-local/</strong>
+      <ul>
+        <li><strong>fonts/</strong>
+          <ul>
+            <li>
+              <a href="https://www.deathboxes.co.uk/fonts/caprasimo.woff2" target="_blank">caprasimo.woff2</a> <span class="file-comment">&lt;-- Main title font</span></li>
+            <li>
+              <a href="https://www.deathboxes.co.uk/fonts/quicksand.woff2" target="_blank">quicksand.woff2</a> <span class="file-comment">&lt;-- Body font</span></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://www.deathboxes.co.uk/android-chrome-192x192.png" target="_blank">android-chrome-192x192.png</a> <span class="file-comment">&lt;-- Icon image file</span></li>
+        <li>
+          <a href="https://www.deathboxes.co.uk/android-chrome-512x512.png" target="_blank">android-chrome-512x512.png</a> <span class="file-comment">&lt;-- Icon image file</span></li>
+        <li>
+          <a href="https://www.deathboxes.co.uk/apple-touch-icon.png" target="_blank">apple-touch-icon.png</a> <span class="file-comment">&lt;-- Icon image file</span></li>
+		<li><a href="https://www.deathboxes.co.uk/DeathBox-ChatGPT-Security-Audit.docx" target="_blank">DeathBox-ChatGPT-Security-Audit.docx</a>  <span class="file-comment">&lt;-- ChatGPT security audit</span></li>
+		<li>
+          <a href="https://www.deathboxes.co.uk/deathboxes.js" target="_blank">deathboxes.js</a> <span class="file-comment">&lt;-- This is the main application's JavaScript file</span>
+		  </li>
+        <li>
+          <a href="https://www.deathboxes.co.uk/deathbox-logo.jpg" target="_blank">deathbox-logo.jpg</a> <span class="file-comment">&lt;-- Main logo</span>
+		  </li>
+		<li>
+          <a href="https://www.deathboxes.co.uk/favicon.ico" target="_blank">favicon.ico</a> <span class="file-comment">&lt;-- This manages the app's icon images. It includes details about the other icons and which sizes to use.</span>
+		  </li>
+        <li>
+          <a href="https://www.deathboxes.co.uk/favicon-16x16.png" target="_blank">favicon-16x16.png</a> <span class="file-comment">&lt;-- Icon image file</span>
+		  </li>
+        <li>
+          <a href="https://www.deathboxes.co.uk/favicon-32x32.png" target="_blank">favicon-32x32.png</a> <span class="file-comment">&lt;-- Icon image file</span>
+		  </li>
+        <li>
+          <a href="https://www.deathboxes.co.uk/index.html" target="_blank">index.html</a> <span class="file-comment">&lt;-- This is the main application page</span>
+		  </li>	
+		<li>
+          <a href="https://www.deathboxes.co.uk/jquery-ui.min.js" target="_blank">jquery-ui.min.js</a> <span class="file-comment">&lt;-- JavaScript helper for drag/drop/sort</span>
+		  </li>
+		
+		<li><a href="https://www.deathboxes.co.uk/jquery.ui.touch-punch.min.js" target="_blank">jquery.ui.touch-punch.min.js</a> <span class="file-comment">&lt;-- JavaScript helper for touchscreen devices</span></li>
+		<li>
+          <a href="https://www.deathboxes.co.uk/jquery.min.js" target="_blank">jquery.min.js</a> <span class="file-comment">&lt;-- Common JavaScript framework</span>
+		  </li>
+		<li>
+          <a href="https://www.deathboxes.co.uk/jspdf.umd.min.js" target="_blank">jspdf.umd.min.js</a> <span class="file-comment">&lt;-- JavaScript helper to create PDFs</span>
+		  </li>
+        <li>
+          <a href="https://www.deathboxes.co.uk/robots.txt" target="_blank">robots.txt</a> <span class="file-comment">&lt;-- This tells search engine crawlers not to list any files</span>
+		  </li>
+        <li>
+         <a href="https://www.deathboxes.co.uk/site.webmanifest" target="_blank">site.webmanifest</a> <span class="file-comment">&lt;-- This allows DeathBoxes be added to a device’s homescreen without an app store</span>
+		 </li>
+        <li>
+          <a href="https://www.deathboxes.co.uk/style.css" target="_blank">style.css</a> <span class="file-comment">&lt;-- This styles the application</span>
+		  </li>
+      </ul>
+    </li>
+  </ul>
+
+  </div>
+
+</div>
+
+<!-- Off-screen div to store render clone for jsPDF -->
+<div id="pdfRender"></div>
+
+<a name="faq"></a>
+<div class="faq">
+
+<div class="notice">
+
+<h2>Frequently asked Questions</h2>
+
+<ul class="toc">Please enable JavaScript!</ul>
+
+<a name="faq-security"></a><h3>Q: How secure is my DeathBox?</h3>
+	
+	<div class="faq-security-answer">
+	<p>Let's be real – if a malicious individual got their hands on your DeathBox and managed to read its contents, it could potentially ruin <em>multiple</em> lives, and your own death.  Seriously. Your identity could be stolen, homes and property lost, loved ones kidnapped, bank accounts emptied, relationships destroyed and all manner of hell unleashed. Or worse.</p>
+	
+	<p>Once you've completed the form, entered a passphrase and downloaded your encrypted PDF, make sure you keep it in a secure place, and preferably backed up.</p>
+	
+	<p>For your DeathBox to be accessible after you're gone, you'll also need to give your passphrase to at least one other person who has the means to visit this webpage (or a local copy of it) and upload the encrypted file. An encrypted DeathBox file or PDF without a passphrase is pretty much useless.</p>
+	
+	<p><strong>Basically, your DeathBox is only as strong as the passphrase you use to encrypt it, the confidence you have in those you entrust it to, and the integrity of the device you store it on.</strong></p>
+	
+	<h4>No Spying Shenanigans</h4>
+	
+	<p>I appreciate the highly sensitive nature of the information you provide, and as such, all processing is undertaken within your browser. No third-party cookies are used and <strong>absolutely no data whatsoever is stored or transmitted</strong> beyond your computer and this page (this page does not use cookies either).</p>
+	
+	<p>There is no tracking, no back-end database, no server-side processing and no surreptitious storage other than the files you explicitly choose to encrypt and download. Your IP address is of no interest to me, and nothing you enter here is recorded, not even in a log file.</p>
+
+	<h4>No Man-in-the-Middle Monkey-Business</h4>
+	
+	<p>Building your DeathBox is a wholly <a href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model#Client_side" target="_blank">client-side</a> process, that's to say it happens on <em>your </em>computer. Once your browser has finished loading this page – which includes the HTML, five JavaScript files, a stylesheet, a couple of fonts and favicons (the small icon on the browser's tab) and the logo image (for a total of 12 items, or 13 if the logo is cached) – there are no more HTTP requests. Zero.</p>
+	
+	<p>The HTML form itself has no action defined, so it literally doesn't submit anything at all (including uploads). The application takes your form responses, compiles and encrypts them into a file, then prompts you to download it. The browser's memory is then cleared and the form is reset.</p>
+	
+	<p><strong>You can check out exactly what's going on by opening your browser's developer console (F12) and taking a look at the network, memory, storage and cookie sections.</strong></p>
+	
+	<h4>Content Security</h4>
+	
+	<p>I've gone to some lengths to lock down the security of this website's headers and content.  If you're technically minded and know what you're looking at, you can analyse deathboxes.co.uk yourself via the links below.</p>
+	
+	<p><a href="https://developer.mozilla.org/en-US/observatory/analyze?host=www.deathboxes.co.uk" target="_blank">Mozilla Observatory (A+)</a></p>
+	
+	<p><a href="https://securityheaders.com/?q=https%3A%2F%2Fwww.deathboxes.co.uk&hide=on&followRedirects=on" target="_blank">Security Headers (A+)</a></p>
+	
+	<h4>Encryption</h4>
+	
+	<p>When you download a PDF or save your progress, the file is encrypted using military-grade SHA-512 hashing, based on a passphrase that you need to provide. To decrypt a file, you (or somebody else) will need to visit this page, enter your passphrase and re-upload the file using the appropriate function.</p>
+	
+	<p>There is an option to download an unencrypted PDF, but we <strong>strongly</strong> recommend against doing so for obvious reasons. However, if you need the 'Last Will and Testament' section to be legally valid, you'll need to download an unencrypted PDF, print it out and sign the appropriate sections along with two witnesses.</p>
+	
+	<h4>ChatGPT Security Audit</h4>
+	
+	<p>I've run a basic security audit of DeathBoxes using ChatGPT.  The results are unsurprising but nonetheless worth a read.  You can download it here:</p>
+	<p><a href="DeathBox-ChatGPT-Security-Audit.docx" target="_blank">DeathBox-ChatGPT-Security-Audit.docx</a> (~23KiB)</p>
+	<p>Below is a risk map that ChatGPT also generated.</p>
+	<p><img src="deathboxes-risk-map.jpg" width="100%" alt="A risk-map for DeathBoxes generated by ChatGPT" border="1"></p>
+	
+	<h4>Transparency and Disclaimer</h4>
+	
+	<p>For full transparency, you are more than welcome to download the source code of this page via the option below the form. Downloading the source code will also allow you to run the application on your local computer or server (ideally using SSL/TLS).</p>
+	
+	<p>All that said, <strong>I take absolutely no responsibility for the information you enter here, its validity, or any consequences resulting from its misuse, mishandling or unauthorised access.</strong> What you do with the contents of your DeathBox is wholly down to you. You have been warned.</p>
+	</div>
+
+<a name="faq-lost"></a><h3>Q: I've lost the passphrase for an encrypted DeathBox. What can I do?</h3>
+	
+	<div class="faq-lost-answer">
+	<p>If somebody entrusted you with their encrypted DeathBox without providing a passphrase, or it's been lost or forgotten, I'm afraid there's nothing that can be done. DeathBox files are encrypted using SHA-512 hashing – a one-way process that cannot be bypassed. Passphrases are <strong>never</strong> saved to a server so there's absolutely no way to recover them.</p>
+	</div>
+	
+	<a name="faq-offline"></a><h3>Q: What happens if deathboxes.co.uk. is offline or broken?</h3>
+	
+	<div class="faq-offline-answer">
+	<p>There may come a time when deathboxes.co.uk is no longer operating. The best thing to do to avoid such an eventuality is to download a copy of DeathBoxes to your local computer.  I also intend to put the project on Github for public access. Watch this space!</p>
+	</div>
+	
+    <a name="faq-who"></a><h3>Q: Who made this website?</h3>
+	
+	<div class="faq-who-answer">
+	<p>Me, Russell McVeigh.  I'm an editor, developer and musician.  And I'm 100% human according to those around me. I'm also somewhat addicted to designing and building little online worlds and applications that most people never see. I thought I'd put this one out there as it's a ridiculously simple idea and was fairly easy to set up. Another one of my pet projects is <a href="https://www.kungfuhaiku.com/" target="_blank">Kung Fu Haiku</a>, which has now been pottering along since 2008.</p>
+	</div>
+	
+<a name="faq-free"></a><h3>Q: Is it really free to use?</h3>
+
+<div class="faq-free-answer">
+
+<p>Yes, creating your own DeathBox is absolutely free. You're also welcome to download the application and use it offline.  However, it is copyrighted, so I'd really appreciate it if you didn't clone it, sell it or claim it as your own.</p>
+
+<p>If you've found the application useful and are in a particularly generous mood, <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=tech@netstepper.com&tax=0&item_name=DeathBox%20Donation&currency_code=GBP" target="_blank">feel free to drop me a PayPal donation</a>.</p>
+
+<h4>No Advertising Antics</h4>
+
+<p>There is no advertising whatsoever on DeathBox (aside from the odd hyperbolic phrase). My sole driver for developing it is altruism – to provide what I consider to be a genuinely useful service, totally free of charge. And besides, placing ads would completely undermine visitor trust.</p>
+</div>
+
+<a name="faq-will"></a><h3>Q: Is the 'Last Will and Testament' section legally valid?</h3>
+
+<div class="faq-will-answer">
+
+<p>From what I understand after a cursory Google, if you want the 'Last Will and Testament' section to be legally valid, you'll need to download and print a non-encrypted PDF and physically sign the appropriate sections (along with two qualified witnesses).  Be sure to keep the paper copy in a secure, memorable place (we recommend a safe, bank or a locked, fireproof strongbox). If in doubt, always consult a lawyer or legal professional.</p>
+</div>
+
+<a name="faq-suggest"></a><h3>Q: Can I make a suggestion?</h3>
+
+<div class="faq-suggest-answer">
+<p>By all means! I've tried to provide as many options as possible without overdoing it.  If you have suggestions for extra fields or additional functionality, please feel free to get in touch with the specifics. I can't promise to I'll implement any suggestions, but I'll definitely consider them.</p>
+</div>
+
+<a name="faq-bugs"></a><h3>Q: I've found a bug, error or other problem. What should I do?</h3>
+
+<div class="faq-bugs-answer">
+<p>First up, thanks for spotting it.  If you think you've found a bug that isn't due to user error, I'd be more than happy for you to get in touch so I can take a closer look.  The website first went live in November 2025, so there could still be a few gremlins lurking.</p>
+
+<p>If you wish to raise a legal issue, please put it in writing, along with your full name, and send it to <a href="mailto:hello@deathboxes.co.uk">hello@deathboxes.co.uk</a>.</p>
+</div>
+
+<a name="faq-app"></a><h3>Q: Is there a smartphone app?</h3>
+
+<div class="faq-app-answer">
+<p>There is currently no dedicated smartphone application for DeathBoxes.  It's a really simple website, so it seems pointless to develop a separate app with exactly the same functionality.</p>
+</div>
+
+<a name="faq-morbid"></a><h3>Q: Isn't it all a bit morbid?</h3>
+
+<div class="faq-morbid-answer">
+<p>Maybe. I'm not sure to be completely honest.  I'm an atheist, but much like C. S. Lewis's dichotomy, I've found myself at odds with the idea of a universe that isn't steeped in some kind of deeper meaning, mystery or even magic.</p>
+
+<p>Death has long been regarded as one of life's profound mysteries, so my idea to create DeathBoxes may have simply sprouted from that latent fascination. Paradoxically, when you lose someone dear, you begin to learn how to understand — or compartmentalise (literally in this case) — the ineffable.</p>
+</div>
+
+</div>
+</div>
+
+<br><br>
+<footer>Concept, code and design copyright ©2025 <a href="https://www.netstepper.com" target="_blank">Russell McVeigh</a></footer>
+<!-- Include main DeathBoxes JavaScript -->
+<script src="deathboxes.js"></script>
+
+</body>
+</html>
