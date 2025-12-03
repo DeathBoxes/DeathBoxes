@@ -50,7 +50,7 @@ You can check out exactly what's going on by opening your browser's developer co
 
 **Content Security**
 
-I've gone to some lengths to lock down the security of this website's headers and content. If you're technically minded and know what you're looking at, you can analyse deathboxes.co.uk yourself via the links below.
+I've gone to some lengths to lock down the security of the application's headers and content. If you're technically minded and know what you're looking at, you can analyse deathboxes.co.uk yourself via the links below.
 
 [Mozilla Observatory (A+)](https://developer.mozilla.org/en-US/observatory/analyze?host=www.deathboxes.co.uk)
 
@@ -58,17 +58,17 @@ I've gone to some lengths to lock down the security of this website's headers an
 
 **Encryption**
 
-When you download a PDF or save your progress, the file is encrypted using military-grade SHA-512 hashing, based on a passphrase that you need to provide. To decrypt a file, you (or somebody else) will need to visit this page, enter your passphrase and re-upload the file using the appropriate function.
+When you download a PDF or save your progress, the file is encrypted using military-grade SHA-512 hashing, based on a passphrase that you need to provide. To decrypt a file, you (or somebody else) will need to visit the application, enter your passphrase and re-upload the file using the appropriate function.
 
 There is an option to download an unencrypted PDF, but we strongly recommend against doing so for obvious reasons. However, if you need the 'Last Will and Testament' section to be legally valid, you'll need to download an unencrypted PDF, print it out and sign the appropriate sections along with two witnesses.
 
 **ChatGPT Security Audit**
 
-I've run a basic security audit of DeathBoxes using ChatGPT. The results are unsurprising but nonetheless worth a read. It's included in the repository, along with a risk map that ChatGPT also generated:
+I've run a basic security audit of DeathBoxes using ChatGPT. The results are unsurprising but nonetheless worth a read. It's included in the repository, along with a risk map that ChatGPT also generated.
 
 **Transparency and Disclaimer**
 
-For full transparency, you are more than welcome to download the source code of this page via the option below the form. Downloading the source code will also allow you to run the application on your local computer or server (ideally using SSL/TLS).
+For full transparency, you are more than welcome to download the source code of this page via the option below the form or on Github. Downloading the source code will also allow you to run the application on your local computer or server (ideally using SSL/TLS).
 
 ## All that said, I take absolutely no responsibility for the information you enter into your DeathBox, its validity, or any consequences resulting from its misuse, mishandling or unauthorised access. What you do with the contents of your DeathBox is wholly down to you. You have been warned.
 
