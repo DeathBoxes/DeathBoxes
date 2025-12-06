@@ -574,9 +574,12 @@ footer a:hover {
   background: #e90f9b;
 }
 
-.faq {
+.faq, .info-panel {
 	padding-left:30px;
 	padding-right:30px;
+}
+.info-panel h2 {
+	text-align:left!important;
 }
 .toc {
 	list-style:none;
