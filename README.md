@@ -22,6 +22,10 @@ For convenience, you can save your progress to an encrypted file and then resume
 2. Unzip to a location on your computer or device
 3. Locate and open index.html in your browser to run the application 
 
+## Simple Infographic
+
+![A simple infographic showing how to use Deathboxes](deathboxes-simple-infographic.jpg)
+
 ## Frequently asked Questions
 
 ### Q: How secure is my DeathBox?
